@@ -32,6 +32,7 @@ class Classic(Base):
             'title', 'author',
             'type', 'url']
 
+    # 保证对象能够序列化
     def keys(self):
         return self.fields
 
@@ -45,12 +46,16 @@ class Classic(Base):
 
     @property
     def image_url(self):
-        return self.image.image
+        return 'test'
 
-    # @property
-    # def fav_nums(self):
-    #     count = Like.query.filter_by(cid=self.id).count()
-    #     return count
+    @property
+    def fav_nums(self):
+        # count = Like.query.filter_by(cid=self.id).count()
+        return 5
+
+    @property
+    def like_status(self):
+        return 1
 
     def next(self, index):
         res = self.query.filter_by().filter(

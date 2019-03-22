@@ -1,4 +1,4 @@
-from flask import Flask
+from .app import Flask
 
 
 def register_blueprints(app):
@@ -8,11 +8,14 @@ def register_blueprints(app):
     :return:
     """
     from app.api import create_blueprint_v1
-    app.register_blueprint(create_blueprint_v1(), url_prifix='/v1')
+    app.register_blueprint(create_blueprint_v1(), url_prefix='/v1')
 
 
-def register_plugin():
-    pass
+def register_plugin(app):
+    from app.models.base import db
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
 
 
 def create_app():

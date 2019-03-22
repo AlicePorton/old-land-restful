@@ -2,9 +2,13 @@ from app.api.view_models.base import BaseViewModel
 
 
 class ClassicViewModel(BaseViewModel):
+    """
+    TODO: 这里是对Model做一个筛选，但是这种筛选是不是有些过于复杂，能不能用更加简便的方法：
+        `反射`
+    """
     def __init__(self, classic):
         self.content = classic['content']
-        self.fave_nums = classic['fav_nums']
+        self.fav_nums = classic['fav_nums']
         self.id = classic['id']
         self.image = classic['image_url']
         self.index = classic['index']

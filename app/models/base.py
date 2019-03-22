@@ -51,7 +51,7 @@ class Base(db.Model):
         return self
 
     @property
-    def create_datetmie(self):
+    def create_datetime(self):
         return datetime.fromtimestamp(self.create_time) if self.create_time else None
 
     def set_attrs(self, attrs_dict):
